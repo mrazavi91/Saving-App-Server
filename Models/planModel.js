@@ -17,6 +17,9 @@ const planModel = new Schema({
     },
     user_id: {
         type: String
+    },
+    sub_id: {
+        type: String
     }
 })
 

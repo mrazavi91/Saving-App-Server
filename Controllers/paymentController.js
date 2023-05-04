@@ -20,9 +20,12 @@ export const payment_POST = async (req, res) => {
             ephemeralKey: ephemeralKey.secret,
             customer: customer.id
         })
+        console.log(paymentIntent.client_secret)
     } catch (error) {
         res.status(401).json({error: error.message})
     }
 
 
 }
+
+

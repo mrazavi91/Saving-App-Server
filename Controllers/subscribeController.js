@@ -53,11 +53,12 @@ export const subscribe_POST = async (req, res) => {
         res.status(200).json({
             clientSecret: subscription.latest_invoice.payment_intent.client_secret,
             method: subscription.latest_invoice.payment_intent.payment_method,
-            id: subscription.id
+            id: subscription.id,
+            created: subscription.start_date
         })
     } catch (error) {
-        console.log(error)
-        res.json(400).json(error)
+        console.log(error.raw.message)
+        res.status(401).json({error: error.raw.message})
     }
 }
 
@@ -72,8 +73,9 @@ export const subId_Get = async (req, res) => {
             id
         );
 
-        res.status(200).json(subscription.status)
-        console.log(subscription)
+        // res.status(200).json(subscription.status)
+        res.status(200).json(subscription)
+        // console.log('subcriotion: ', subscription)
     } catch (error) {
         res.status(401).json({ error: error.message })
     }

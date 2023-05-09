@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { login_POST, signup_POST } from "../Controllers/userControllers.js";
-import { allPlan_GET, plan_GET, plan_POST } from "../Controllers/planController.js";
+import { allPlan_GET, plan_GET, plan_POST, plan_UPDATE } from "../Controllers/planController.js";
 import requireAuth from "../middleware/reqAuth.js";
 import { payment_POST} from "../Controllers/paymentController.js";
 import {  subId_Get, subscribe_POST } from "../Controllers/subscribeController.js";
@@ -14,6 +14,7 @@ userRouter.post('/payment/subscribe', subscribe_POST)
 userRouter.get('/payment/subscribe/:id', subId_Get)
 userRouter.use(requireAuth)
 userRouter.post('/plan', plan_POST)
+userRouter.patch('/plan', plan_UPDATE)
 userRouter.get('/plan', allPlan_GET)
 userRouter.get('/plan/:id',plan_GET)
 

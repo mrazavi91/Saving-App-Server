@@ -20,6 +20,12 @@ const planModel = new Schema({
     },
     sub_id: {
         type: String
+    },
+    amountSaved: {
+        type : Number
+    },
+    start_date: {
+        type: String
     }
 })
 
